@@ -9,7 +9,6 @@ public class DbSysParam {
 	public int screenheight;
 	public String applicationpath;
 	public int autozoomtimeout;
-	public int checkdistance;
 	public int pictureduration;
 	public int modetype;
 	public String modedescription;
@@ -25,7 +24,6 @@ public class DbSysParam {
         screenheight = -1;
         applicationpath = null;
         autozoomtimeout = -1;
-        checkdistance = -1;
         pictureduration = -1;
         modetype = -1;
         modedescription = null;

@@ -34,7 +34,6 @@ public class MirrorDbHelper extends SQLiteOpenHelper {
 				+ DbConstants.SPT_SCREENHEIGHT + " INTEGER DEFAULT '-1',"
 				+ DbConstants.SPT_APPLICATIONPATH + " TEXT DEFAULT NULL,"
 				+ DbConstants.SPT_AUTOZOOMTIMEOUT + " INTEGER DEFAULT '-1',"
-				+ DbConstants.SPT_CHECKDISTANCE + " INTEGER DEFAULT '-1',"
 				+ DbConstants.SPT_PICTUREDURATION + " INTEGER DEFAULT '-1',"
 				+ DbConstants.SPT_MODETYPE + " INTEGER DEFAULT '-1',"
 				+ DbConstants.SPT_MODEDESCRITION + " TEXT DEFAULT NULL,"

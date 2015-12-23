@@ -5,7 +5,6 @@
         id="YSMT001"
         model="YSMT-200"
         autozoomtimeout="5"
-        checkdistance="500"
         pictureduration="10" />
 
     <modeinfo

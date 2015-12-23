@@ -57,9 +57,8 @@ public class SysParamManager {
 			mSysParam.devinfo.screenheight = dbsysparam.screenheight;
 			mSysParam.devinfo.applicationpath = dbsysparam.applicationpath;
 			mSysParam.devinfo.autozoomtimeout = dbsysparam.autozoomtimeout;
-			mSysParam.devinfo.checkdistance = dbsysparam.checkdistance;
 			mSysParam.devinfo.pictureduration = dbsysparam.pictureduration;
-
+			
 			if (mSysParam.modeinfo == null) {
 				mSysParam.modeinfo = new ModeInfo();
 			}
@@ -169,7 +168,6 @@ public class SysParamManager {
 		mSysParam.devinfo.id = xmlsysparam.deviceid;
 		mSysParam.devinfo.model = xmlsysparam.devicemodel;
 		mSysParam.devinfo.autozoomtimeout = xmlsysparam.devautozoomtimeout;
-		mSysParam.devinfo.checkdistance = xmlsysparam.devcheckdistance;
 		mSysParam.devinfo.pictureduration = xmlsysparam.devpictureduration;
 		
 		String softwareversion = SysInfoHelper.getSoftwareVersion();
@@ -319,20 +317,6 @@ public class SysParamManager {
 		return autozoomtimeout;
 	}
 
-	public int getCheckDistance() {
-		int checkdistance = -1;
-
-		mReadWriteLock.readLock().lock();
-
-		if (mSysParam.devinfo != null) {
-			checkdistance = mSysParam.devinfo.checkdistance;
-		}
-
-		mReadWriteLock.readLock().unlock();
-
-		return checkdistance;
-	}
-
 	public int getPictureDuration() {
 		int pictureduration = -1;
 
@@ -404,12 +388,9 @@ public class SysParamManager {
 		return columnnum;
 	}
 
-	public void setUserParams(int autozoomtimeout, int checkdistance, int pictureduration) {
+	public void setUserParams(int autozoomtimeout, int pictureduration) {
 		if (autozoomtimeout < 0) {
 			mLogger.i("Auto zoom timeout is less than zore.");
-			return;
-		} else if (checkdistance < 0) {
-			mLogger.i("Check distance is less than zore.");
 			return;
 		} else if (pictureduration < 0) {
 			mLogger.i("Picture duration is less than zore.");
@@ -422,10 +403,9 @@ public class SysParamManager {
 			mSysParam.devinfo = new DevInfo();
 		}
 		mSysParam.devinfo.autozoomtimeout = autozoomtimeout;
-		mSysParam.devinfo.checkdistance = checkdistance;
 		mSysParam.devinfo.pictureduration = pictureduration;
 
-		DbHelper.getInstance().updateUserParams(autozoomtimeout, checkdistance, pictureduration);
+		DbHelper.getInstance().updateUserParams(autozoomtimeout, pictureduration);
 
 		mReadWriteLock.writeLock().unlock();
 	}

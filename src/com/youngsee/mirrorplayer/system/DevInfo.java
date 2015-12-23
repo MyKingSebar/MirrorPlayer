@@ -18,8 +18,6 @@ public class DevInfo {
 	public String applicationpath;
 	/** Auto zoom timeout */
 	public int autozoomtimeout;
-	/** Check distance */
-	public int checkdistance;
 	/** Picture duration */
 	public int pictureduration;
 
@@ -32,7 +30,6 @@ public class DevInfo {
 		screenheight = -1;
 		applicationpath = null;
 		autozoomtimeout = -1;
-		checkdistance = -1;
 		pictureduration = -1;
 	}
 
@@ -45,7 +42,6 @@ public class DevInfo {
 		screenheight = info.screenheight;
 		applicationpath = (info.applicationpath != null) ? new String(info.applicationpath) : null;
 		autozoomtimeout = info.autozoomtimeout;
-		checkdistance = info.checkdistance;
 		pictureduration = info.pictureduration;
 	}
 
